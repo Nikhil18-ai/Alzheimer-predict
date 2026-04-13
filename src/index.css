@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── LIGHT THEME (default) ─────────────────────────────────── */
+:root,
+[data-theme="light"] {
+  --background: 210 30% 97%;
+  --foreground: 220 30% 10%;
+  --primary: 199 89% 48%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 263 55% 60%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 174 72% 40%;
+  --accent-foreground: 0 0% 100%;
+  --success: 152 69% 40%;
+  --success-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 30% 10%;
+  --muted: 210 20% 93%;
+  --muted-foreground: 215 16% 47%;
+  --border: 214 32% 88%;
+  --input: 214 32% 88%;
+  --ring: 199 89% 48%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 30% 10%;
+  --radius: 0.75rem;
+
+  --hero-gradient: linear-gradient(
+    135deg,
+    hsl(210, 30%, 97%) 0%,
+    hsl(199, 60%, 94%) 40%,
+    hsl(263, 40%, 95%) 100%
+  );
+  --card-shadow: 0 4px 20px hsla(199, 89%, 48%, 0.12);
+  --card-shadow-hover: 0 8px 32px hsla(199, 89%, 48%, 0.22);
+}
+
+/* ─── DARK THEME ─────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --background: 222 47% 8%;
+  --foreground: 210 40% 96%;
+  --primary: 199 89% 55%;
+  --primary-foreground: 222 47% 8%;
+  --secondary: 263 55% 65%;
+  --secondary-foreground: 222 47% 8%;
+  --accent: 174 72% 45%;
+  --accent-foreground: 222 47% 8%;
+  --success: 152 69% 45%;
+  --success-foreground: 222 47% 8%;
+  --destructive: 0 84% 65%;
+  --destructive-foreground: 0 0% 100%;
+  --card: 222 40% 11%;
+  --card-foreground: 210 40% 96%;
+  --muted: 222 30% 18%;
+  --muted-foreground: 215 20% 60%;
+  --border: 217 32% 20%;
+  --input: 217 32% 20%;
+  --ring: 199 89% 55%;
+  --popover: 222 40% 11%;
+  --popover-foreground: 210 40% 96%;
+
+  --hero-gradient: linear-gradient(
+    135deg,
+    hsl(222, 47%, 8%) 0%,
+    hsl(210, 40%, 12%) 40%,
+    hsl(263, 30%, 10%) 100%
+  );
+  --card-shadow: 0 4px 20px hsla(199, 89%, 55%, 0.15);
+  --card-shadow-hover: 0 8px 32px hsla(199, 89%, 55%, 0.28);
+}
+
+/* ─── CUSTOM / PURPLE AURORA THEME ──────────────────────────── */
+[data-theme="custom"] {
+  --background: 260 30% 8%;
+  --foreground: 260 10% 95%;
+  --primary: 263 55% 60%;
+  --primary-foreground: 260 30% 8%;
+  --secondary: 199 89% 55%;
+  --secondary-foreground: 260 30% 8%;
+  --accent: 174 72% 45%;
+  --accent-foreground: 260 30% 8%;
+  --success: 152 69% 45%;
+  --success-foreground: 260 30% 8%;
+  --destructive: 0 84% 65%;
+  --destructive-foreground: 0 0% 100%;
+  --card: 260 25% 12%;
+  --card-foreground: 260 10% 95%;
+  --muted: 260 20% 18%;
+  --muted-foreground: 260 10% 60%;
+  --border: 263 30% 22%;
+  --input: 263 30% 22%;
+  --ring: 263 55% 60%;
+  --popover: 260 25% 12%;
+  --popover-foreground: 260 10% 95%;
+
+  --hero-gradient: linear-gradient(
+    135deg,
+    hsl(260, 30%, 8%) 0%,
+    hsl(263, 30%, 12%) 40%,
+    hsl(199, 30%, 10%) 100%
+  );
+  --card-shadow: 0 4px 20px hsla(263, 55%, 60%, 0.18);
+  --card-shadow-hover: 0 8px 32px hsla(263, 55%, 60%, 0.32);
+}
+
+/* ─── BASE STYLES ────────────────────────────────────────────── */
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── UTILITY CLASSES ────────────────────────────────────────── */
+@layer utilities {
+  .text-gradient-primary {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--accent)) 50%,
+      hsl(var(--secondary)) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .card-elevated {
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.75rem;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+  }
+}
+
+/* ─── SCROLLBAR ──────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.5);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
